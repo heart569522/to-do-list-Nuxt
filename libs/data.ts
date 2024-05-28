@@ -1,7 +1,7 @@
 export interface Task {
   id: number;
   title: string;
-  detail: string;
+  detail: string | null;
   status: string;
   tag: string;
   date: string;
@@ -9,16 +9,18 @@ export interface Task {
 
 export interface ToDoItem {
   id: number;
-  projectName: string;
-  projectDate: string;
+  todoName: string;
+  todoDetail: string | null;
+  todoDate: string;
   task: Task[];
 }
 
 export const toDoData: ToDoItem[] = [
   {
     id: 1,
-    projectName: "Work",
-    projectDate: "2024-05-28",
+    todoName: "Work Everyday",
+    todoDetail: "list of work everyday i do",
+    todoDate: "2024-05-28",
     task: [
       {
         id: 1,
@@ -48,8 +50,9 @@ export const toDoData: ToDoItem[] = [
   },
   {
     id: 2,
-    projectName: "Home",
-    projectDate: "2024-05-29",
+    todoName: "Home Do",
+    todoDetail: "in home need i do",
+    todoDate: "2024-05-29",
     task: [
       {
         id: 1,

@@ -9,10 +9,10 @@ useSeoMeta({
 });
 
 const data = toDoData;
-const selectedProject = ref<ToDoItem | null>(data[0]);
+const selectedTodo = ref<ToDoItem | null>(data[0]);
 
-const selectProject = (project: ToDoItem) => {
-  selectedProject.value = project;
+const selectTodo = (todo: ToDoItem) => {
+  selectedTodo.value = todo;
 };
 </script>
 
@@ -39,24 +39,30 @@ const selectProject = (project: ToDoItem) => {
           class="col-span-12 md:col-span-4 bg-white dark:bg-zinc-800 rounded-lg p-6"
         >
           <div class="flex flex-col gap-4">
-            <h3 class="text-2xl font-semibold tracking-wide">My Projects</h3>
+            <h3 class="text-3xl font-semibold tracking-wide mb-2">To-Do</h3>
             <div class="w-full rounded-md">
               <ul class="space-y-4">
                 <li v-for="item in data" :key="item.id">
                   <button
                     type="button"
-                    class="p-4 text-left bg-zinc-700 hover:bg-zinc-600 active:bg-zinc-700 w-full rounded-md"
-                    :class="{'border-2 border-primary': selectedProject?.id === item.id}"
-                    @click="selectProject(item)"
+                    class="p-4 bg-zinc-700 hover:bg-zinc-600 active:bg-zinc-700 w-full rounded-md"
+                    :class="{
+                      'border-2 border-primary': selectedTodo?.id === item.id,
+                    }"
+                    @click="selectTodo(item)"
                   >
-                    {{ item.projectName }}
+                    <div class="flex flex-col justify-center items-start gap-2">
+                      <h5 class="text-xl">{{ item.todoName }}</h5>
+                      <p v-if="item.todoDetail" class="text-lg font-light">{{ item.todoDetail }}</p>
+                      <p class="text-base text-zinc-200/70">{{ item.todoDate }}</p>
+                    </div>
                   </button>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <TaskItem v-if="selectedProject" :project="selectedProject" />
+        <TaskItem v-if="selectedTodo" :todo="selectedTodo" />
       </div>
     </div>
   </section>
