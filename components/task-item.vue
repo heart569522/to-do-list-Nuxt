@@ -52,7 +52,7 @@ watch(
             class="col-span-12 lg:col-span-10 flex flex-col gap-y-2 items-start justify-center"
           >
             <h4 class="text-xl">{{ task.title }}</h4>
-            <p v-if="task.detail"class="text-lg text-zinc-200 font-light">
+            <p v-if="task.detail" class="text-lg text-zinc-200 font-light">
               {{ task.detail }}
             </p>
             <div class="flex justify-start items-center gap-2 mt-2">

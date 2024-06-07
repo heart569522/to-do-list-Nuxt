@@ -51,7 +51,7 @@ const selectTodo = (todo: ToDoItem) => {
                     }"
                     @click="selectTodo(item)"
                   >
-                    <div class="flex flex-col justify-center items-start gap-2">
+                    <div class="flex flex-col text-left justify-center items-start gap-2">
                       <h5 class="text-xl">{{ item.todoName }}</h5>
                       <p v-if="item.todoDetail" class="text-lg font-light">{{ item.todoDetail }}</p>
                       <p class="text-base text-zinc-200/70">{{ item.todoDate }}</p>
